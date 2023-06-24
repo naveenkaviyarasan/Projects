@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Resume Builder</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- Include custom CSS -->
+  <style>
+    /* Instagram color palette gradient theme */
+    body {
+      background: linear-gradient(to right, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #FD1D1D;
+      border-color: #FD1D1D;
+    }
+
+    .btn-primary:hover {
+      background-color: #C13584;
+      border-color: #C13584;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4">
+    <h1>Resume Builder</h1>
+    <form id="resumeForm">
+      <div class="form-group">
+        <label for="name_input">Name:</label>
+        <input type="text" class="form-control" id="name_input" required>
+      </div>
+      <div class="form-group">
+        <label for="phone_input">Phone Number:</label>
+        <input type="text" class="form-control" id="phone_input" required>
+      </div>
+      <div class="form-group">
+        <label for="github_input">GitHub Link:</label>
+        <input type="text" class="form-control" id="github_input" required>
+      </div>
+      <div class="form-group">
+        <label for="linkedin_input">LinkedIn Link:</label>
+        <input type="text" class="form-control" id="linkedin_input" required>
+      </div>
+      <div class="form-group">
+        <label for="gmail_input">Gmail:</label>
+        <input type="text" class="form-control" id="gmail_input" required>
+      </div>
+      <div class="form-group">
+        <label for="portfolio_input">Portfolio Link:</label>
+        <input type="text" class="form-control" id="portfolio_input" required>
+      </div>
+      <hr>
+      <h3>Educational Qualifications</h3>
+      <div id="educational_qualifications">
+        <div class="form-group">
+          <label for="qualification_0">Qualification:</label>
+          <input type="text" class="form-control" id="qualification_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addQualification()">Add Educational Qualification</button>
+      <hr>
+      <h3>Work Experience</h3>
+      <div id="work_experience">
+        <div class="form-group">
+          <label for="experience_0">Experience:</label>
+          <input type="text" class="form-control" id="experience_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addExperience()">Add Work Experience</button>
+      <hr>
+      <h3>Skills</h3>
+      <div id="skills">
+        <div class="form-group">
+          <label for="skill_0">Skill:</label>
+          <input type="text" class="form-control" id="skill_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addSkill()">Add Skill</button>
+      <hr>
+      <h3>Hobbies</h3>
+      <div id="hobbies">
+        <div class="form-group">
+          <label for="hobby_0">Hobby:</label>
+          <input type="text" class="form-control" id="hobby_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addHobby()">Add Hobby</button>
+      <hr>
+      <h3>Languages Known</h3>
+      <div id="languages_known">
+        <div class="form-group">
+          <label for="language_0">Language:</label>
+          <input type="text" class="form-control" id="language_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addLanguage()">Add Language</button>
+      <hr>
+      <h3>Technical Skills</h3>
+      <div id="technical_skills">
+        <div class="form-group">
+          <label for="tech_skill_0">Technical Skill:</label>
+          <input type="text" class="form-control" id="tech_skill_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addTechSkill()">Add Technical Skill</button>
+      <hr>
+      <h3>Certifications</h3>
+      <div id="certifications">
+        <div class="form-group">
+          <label for="certification_0">Certification:</label>
+          <input type="text" class="form-control" id="certification_0" required>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="addCertification()">Add Certification</button>
+      <hr>
+      <button type="submit" class="btn btn-primary">Save Resume</button>
+      <button type="button" class="btn btn-primary" onclick="redirectToPage()">Print Resume</button>
+      <script>
+      function redirectToPage() {
+        window.location.href = "print_resume.html";
+      }
+      </script>
+
+    </form>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    // Function to add educational qualification field
+    function addQualification() {
+      const qualificationsContainer = document.getElementById('educational_qualifications');
+      const count = qualificationsContainer.childElementCount;
+      const newQualificationField = document.createElement('div');
+      newQualificationField.className = 'form-group';
+      newQualificationField.innerHTML = `
+        <label for="qualification_${count}">Qualification:</label>
+        <input type="text" class="form-control" id="qualification_${count}" required>
+      `;
+      qualificationsContainer.appendChild(newQualificationField);
+    }
+
+    // Function to add work experience field
+    function addExperience() {
+      const experienceContainer = document.getElementById('work_experience');
+      const count = experienceContainer.childElementCount;
+      const newExperienceField = document.createElement('div');
+      newExperienceField.className = 'form-group';
+      newExperienceField.innerHTML = `
+        <label for="experience_${count}">Experience:</label>
+        <input type="text" class="form-control" id="experience_${count}" required>
+      `;
+      experienceContainer.appendChild(newExperienceField);
+    }
+
+    // Function to add skill field
+    function addSkill() {
+      const skillsContainer = document.getElementById('skills');
+      const count = skillsContainer.childElementCount;
+      const newSkillField = document.createElement('div');
+      newSkillField.className = 'form-group';
+      newSkillField.innerHTML = `
+        <label for="skill_${count}">Skill:</label>
+        <input type="text" class="form-control" id="skill_${count}" required>
+      `;
+      skillsContainer.appendChild(newSkillField);
+    }
+
+    // Function to add hobby field
+    function addHobby() {
+      const hobbiesContainer = document.getElementById('hobbies');
+      const count = hobbiesContainer.childElementCount;
+      const newHobbyField = document.createElement('div');
+      newHobbyField.className = 'form-group';
+      newHobbyField.innerHTML = `
+        <label for="hobby_${count}">Hobby:</label>
+        <input type="text" class="form-control" id="hobby_${count}" required>
+      `;
+      hobbiesContainer.appendChild(newHobbyField);
+    }
+
+    // Function to add language field
+    function addLanguage() {
+      const languagesContainer = document.getElementById('languages_known');
+      const count = languagesContainer.childElementCount;
+      const newLanguageField = document.createElement('div');
+      newLanguageField.className = 'form-group';
+      newLanguageField.innerHTML = `
+        <label for="language_${count}">Language:</label>
+        <input type="text" class="form-control" id="language_${count}" required>
+      `;
+      languagesContainer.appendChild(newLanguageField);
+    }
+
+    // Function to add technical skill field
+    function addTechSkill() {
+      const techSkillsContainer = document.getElementById('technical_skills');
+      const count = techSkillsContainer.childElementCount;
+      const newTechSkillField = document.createElement('div');
+      newTechSkillField.className = 'form-group';
+      newTechSkillField.innerHTML = `
+        <label for="tech_skill_${count}">Technical Skill:</label>
+        <input type="text" class="form-control" id="tech_skill_${count}" required>
+      `;
+      techSkillsContainer.appendChild(newTechSkillField);
+    }
+
+    // Function to add certification field
+    function addCertification() {
+      const certificationsContainer = document.getElementById('certifications');
+      const count = certificationsContainer.childElementCount;
+      const newCertificationField = document.createElement('div');
+      newCertificationField.className = 'form-group';
+      newCertificationField.innerHTML = `
+        <label for="certification_${count}">Certification:</label>
+        <input type="text" class="form-control" id="certification_${count}" required>
+      `;
+      certificationsContainer.appendChild(newCertificationField);
+    }
+
+    // Function to save resume data to local storage           
+    document.getElementById('resumeForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Create an object to store resume data
+      const resumeData = {
+        name: document.getElementById('name_input').value,
+        phoneNumber: document.getElementById('phone_input').value,
+        githubLink: document.getElementById('github_input').value,
+        linkedinLink: document.getElementById('linkedin_input').value,
+        gmail: document.getElementById('gmail_input').value,
+        portfolioLink: document.getElementById('portfolio_input').value,
+        educationalQualifications: getValues('qualification_'),
+        workExperience: getValues('experience_'),
+        skills: getValues('skill_'),
+        hobbies: getValues('hobby_'),
+        languagesKnown: getValues('language_'),
+        technicalSkills: getValues('tech_skill_'),
+        certifications: getValues('certification_')
+      };
+
+      // Save resume data to local storage
+      localStorage.setItem('resumeData', JSON.stringify(resumeData));
+      alert("Resume saved successfully!");
+      // Redirect to the next page
+      window.location.href = 'print_resume.html';
+      
+    });
+
+    // Function to get the values of input fields with a given prefix
+    function getValues(prefix) {
+      const fields = Array.from(document.querySelectorAll(`[id^="${prefix}"]`));
+      return fields.map(field => field.value);
+    }
+    
+  </script>
+</body>
+
+</html>
+
+
